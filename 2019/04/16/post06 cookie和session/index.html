@@ -5,20 +5,20 @@
   
 
   
-  <title>Study Notes</title>
+  <title>cookie和session | Study Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. cookie介绍1.1 什么是cookie，作用是什么 由于Http协议是无状态的，且传统服务器只能被动的响应请求，所以，当服务器获取到请求的时候，并不知道当前请求属于哪个客户端！ 服务器为了能够明确区分每个客户端，需要使用一些小技术，来根据不同的请求区分不同的客户端； 只要有请求发生，那么必然对应一个客户端，我们可以在每次客户端发起请求的时候，向服务器自动发送一个标识符，告诉服务器当前是哪">
+  <meta name="description" content="cookie和session1. cookie介绍1.1 什么是cookie，作用是什么 由于Http协议是无状态的，且传统服务器只能被动的响应请求，所以，当服务器获取到请求的时候，并不知道当前请求属于哪个客户端！ 服务器为了能够明确区分每个客户端，需要使用一些小技术，来根据不同的请求区分不同的客户端； 只要有请求发生，那么必然对应一个客户端，我们可以在每次客户端发起请求的时候，向服务器自动发送一">
 <meta name="keywords" content="web front end study">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Study Notes">
+<meta property="og:title" content="cookie和session">
 <meta property="og:url" content="http://yoursite.com/2019/04/16/post06 cookie和session/index.html">
 <meta property="og:site_name" content="Study Notes">
-<meta property="og:description" content="1. cookie介绍1.1 什么是cookie，作用是什么 由于Http协议是无状态的，且传统服务器只能被动的响应请求，所以，当服务器获取到请求的时候，并不知道当前请求属于哪个客户端！ 服务器为了能够明确区分每个客户端，需要使用一些小技术，来根据不同的请求区分不同的客户端； 只要有请求发生，那么必然对应一个客户端，我们可以在每次客户端发起请求的时候，向服务器自动发送一个标识符，告诉服务器当前是哪">
+<meta property="og:description" content="cookie和session1. cookie介绍1.1 什么是cookie，作用是什么 由于Http协议是无状态的，且传统服务器只能被动的响应请求，所以，当服务器获取到请求的时候，并不知道当前请求属于哪个客户端！ 服务器为了能够明确区分每个客户端，需要使用一些小技术，来根据不同的请求区分不同的客户端； 只要有请求发生，那么必然对应一个客户端，我们可以在每次客户端发起请求的时候，向服务器自动发送一">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-04-16T12:53:37.279Z">
+<meta property="og:updated_time" content="2019-04-16T13:42:13.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Study Notes">
-<meta name="twitter:description" content="1. cookie介绍1.1 什么是cookie，作用是什么 由于Http协议是无状态的，且传统服务器只能被动的响应请求，所以，当服务器获取到请求的时候，并不知道当前请求属于哪个客户端！ 服务器为了能够明确区分每个客户端，需要使用一些小技术，来根据不同的请求区分不同的客户端； 只要有请求发生，那么必然对应一个客户端，我们可以在每次客户端发起请求的时候，向服务器自动发送一个标识符，告诉服务器当前是哪">
+<meta name="twitter:title" content="cookie和session">
+<meta name="twitter:description" content="cookie和session1. cookie介绍1.1 什么是cookie，作用是什么 由于Http协议是无状态的，且传统服务器只能被动的响应请求，所以，当服务器获取到请求的时候，并不知道当前请求属于哪个客户端！ 服务器为了能够明确区分每个客户端，需要使用一些小技术，来根据不同的请求区分不同的客户端； 只要有请求发生，那么必然对应一个客户端，我们可以在每次客户端发起请求的时候，向服务器自动发送一">
   
     <link rel="alternate" href="/atom.xml" title="Study Notes" type="application/atom+xml">
   
@@ -79,9 +79,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      cookie和session
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-cookie介绍"><a href="#1-cookie介绍" class="headerlink" title="1. cookie介绍"></a>1. cookie介绍</h2><h3 id="1-1-什么是cookie，作用是什么"><a href="#1-1-什么是cookie，作用是什么" class="headerlink" title="1.1 什么是cookie，作用是什么"></a>1.1 什么是cookie，作用是什么</h3><ul>
+        <h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><h3 id="1-cookie介绍"><a href="#1-cookie介绍" class="headerlink" title="1. cookie介绍"></a>1. cookie介绍</h3><h4 id="1-1-什么是cookie，作用是什么"><a href="#1-1-什么是cookie，作用是什么" class="headerlink" title="1.1 什么是cookie，作用是什么"></a>1.1 什么是cookie，作用是什么</h4><ul>
 <li>由于<strong>Http协议是无状态</strong>的，且传统服务器<strong>只能被动的响应请求</strong>，所以，当服务器获取到请求的时候，并不知道当前请求属于哪个客户端！</li>
 <li>服务器为了能够明确区分每个客户端，需要使用一些小技术，来根据不同的请求区分不同的客户端；</li>
 <li>只要有请求发生，那么必然对应一个客户端，我们可以在每次客户端发起请求的时候，向服务器自动发送一个标识符，告诉服务器当前是哪个客户端正在请求服务器的数据；</li>
@@ -92,9 +102,10 @@
 </li>
 <li>客户端也可以通过一些方式来操作自己的cookie，比如通过<code>jquery.cookie</code>这个插件！</li>
 </ul>
-<h3 id="1-2-cookie的基本使用"><a href="#1-2-cookie的基本使用" class="headerlink" title="1.2 cookie的基本使用"></a>1.2 cookie的基本使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 解析cookie</span></span><br><span class="line">    <span class="keyword">var</span> cookies = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> cookieStr = req.headers.cookie; <span class="comment">// 从请求的headers中获取cookie信息</span></span><br><span class="line">    cookieStr &amp;&amp; cookieStr.split(<span class="string">';'</span>).forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> parts = item.split(<span class="string">'='</span>);</span><br><span class="line">        cookies[parts[<span class="number">0</span>].trim()] = parts[<span class="number">1</span>].trim(); <span class="comment">// 将cookie解析出来，保存到对象中</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    res.writeHeader(<span class="number">200</span>, &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span>,</span><br><span class="line">        <span class="string">"Set-Cookie"</span>: [<span class="string">'issend=ok'</span>, <span class="string">'age=20'</span>]</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(cookies.issend ===<span class="string">'ok'</span>)&#123;</span><br><span class="line">        res.end(<span class="string">'不要太贪心哦！'</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        res.end(<span class="string">'呐，赏你一朵小红花~~'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">4000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器已启动!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-通过expires设置Cookie的过期时间"><a href="#1-3-通过expires设置Cookie的过期时间" class="headerlink" title="1.3 通过expires设置Cookie的过期时间"></a>1.3 通过<code>expires</code>设置Cookie的过期时间</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置 过期时间 为60秒之后</span></span><br><span class="line"><span class="comment">// 注意：在设置过期时间的时候，需要将时间转换为 UTC 格式</span></span><br><span class="line"><span class="comment">// Date.now() 获取总秒数,new Date()设置cookie保存的时间,toUTCString()转化固定格式时间字符串</span></span><br><span class="line"><span class="keyword">var</span> expiresTime = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.now() + <span class="number">1000</span> * <span class="number">60</span>).toUTCString();</span><br><span class="line">res.writeHeader(<span class="number">200</span>, &#123;</span><br><span class="line">  <span class="string">'Content-Type'</span>: <span class="string">'text/html; charset=utf-8'</span>,</span><br><span class="line">  <span class="string">'Set-Cookie'</span>: [<span class="string">'isvisit=true;expires='</span> + expiresTime, <span class="string">'test=OK'</span>]</span><br><span class="line">&#125;);</span><br><span class="line">res.end(<span class="string">'&lt;h3&gt;你好，欢迎光临，送给你一个苹果！&lt;/h3&gt;'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="1-4-cookie可以被伪造，不安全"><a href="#1-4-cookie可以被伪造，不安全" class="headerlink" title="1.4 cookie可以被伪造，不安全"></a>1.4 cookie可以被伪造，不安全</h3><p>使用谷歌插件<code>edit this cookie</code>，就能伪造cookie数据！所以不要使用cookie存储敏感的数据！比如登录状态和登录信息；<br>一些敏感的数据，应该存储都服务器端！</p>
+<h4 id="1-2-cookie的基本使用"><a href="#1-2-cookie的基本使用" class="headerlink" title="1.2 cookie的基本使用"></a>1.2 cookie的基本使用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 解析cookie</span></span><br><span class="line">    <span class="keyword">var</span> cookies = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> cookieStr = req.headers.cookie; <span class="comment">// 从请求的headers中获取cookie信息</span></span><br><span class="line">    cookieStr &amp;&amp; cookieStr.split(<span class="string">';'</span>).forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> parts = item.split(<span class="string">'='</span>);</span><br><span class="line">        cookies[parts[<span class="number">0</span>].trim()] = parts[<span class="number">1</span>].trim(); <span class="comment">// 将cookie解析出来，保存到对象中</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    res.writeHeader(<span class="number">200</span>, &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span>,</span><br><span class="line">        <span class="string">"Set-Cookie"</span>: [<span class="string">'issend=ok'</span>, <span class="string">'age=20'</span>]</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(cookies.issend ===<span class="string">'ok'</span>)&#123;</span><br><span class="line">        res.end(<span class="string">'不要太贪心哦！'</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        res.end(<span class="string">'呐，赏你一朵小红花~~'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">4000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器已启动!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-通过expires设置Cookie的过期时间"><a href="#1-3-通过expires设置Cookie的过期时间" class="headerlink" title="1.3 通过expires设置Cookie的过期时间"></a>1.3 通过<code>expires</code>设置Cookie的过期时间</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置 过期时间 为60秒之后</span></span><br><span class="line"><span class="comment">// 注意：在设置过期时间的时候，需要将时间转换为 UTC 格式</span></span><br><span class="line"><span class="comment">// Date.now() 获取总秒数,new Date()设置cookie保存的时间,toUTCString()转化固定格式时间字符串</span></span><br><span class="line"><span class="keyword">var</span> expiresTime = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.now() + <span class="number">1000</span> * <span class="number">60</span>).toUTCString();</span><br><span class="line">res.writeHeader(<span class="number">200</span>, &#123;</span><br><span class="line">  <span class="string">'Content-Type'</span>: <span class="string">'text/html; charset=utf-8'</span>,</span><br><span class="line">  <span class="string">'Set-Cookie'</span>: [<span class="string">'isvisit=true;expires='</span> + expiresTime, <span class="string">'test=OK'</span>]</span><br><span class="line">&#125;);</span><br><span class="line">res.end(<span class="string">'&lt;h3&gt;你好，欢迎光临，送给你一个苹果！&lt;/h3&gt;'</span>);</span><br></pre></td></tr></table></figure>
+<p>1.4 cookie可以被伪造，不安全</p>
+<p>使用谷歌插件<code>edit this cookie</code>，就能伪造cookie数据！所以不要使用cookie存储敏感的数据！比如登录状态和登录信息；<br>一些敏感的数据，应该存储都服务器端！</p>
 <h3 id="1-5-什么是Cookie的应用场景"><a href="#1-5-什么是Cookie的应用场景" class="headerlink" title="1.5 什么是Cookie的应用场景"></a>1.5 什么是Cookie的应用场景</h3><ol>
 <li>对安全性要求不高</li>
 <li>不需要存储大量的数据</li>
@@ -115,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/16/post06 cookie和session/" data-id="cjujtsswq00025st3vmnyl6uy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/16/post06 cookie和session/" data-id="cjujugte20002yst34nzc734z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +175,7 @@
       <ul>
         
           <li>
-            <a href="/2019/04/16/post06 cookie和session/">(no title)</a>
+            <a href="/2019/04/16/post06 cookie和session/">cookie和session</a>
           </li>
         
           <li>
